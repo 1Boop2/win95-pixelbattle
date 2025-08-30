@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>PixelPaint95 – [Untitled]</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/css/win95.css">
+</head>
+<body class="desktop">
+
+  <div id="desktop" class="desktop-bg">
+    <div class="icon" data-app="paint">
+      <div class="emoji-icon" aria-hidden="true">🎨</div>
+      <span>PixelPaint95</span>
+    </div>
+    <div class="icon">
+      <div class="emoji-icon" aria-hidden="true">🖥️</div>
+      <span>My Computer</span>
+    </div>
+    <div class="icon">
+      <div class="emoji-icon" aria-hidden="true">🗑️</div>
+      <span>Recycle Bin</span>
+    </div>
+  </div>
+
+  <div class="taskbar">
+    <button class="start-btn">Start</button>
+    <div class="task" id="task-paint" hidden>
+      <span class="task-emoji">🎨</span> PixelPaint95
+    </div>
+    <div class="clock" id="clock"></div>
+  </div>
+
+  <div id="win-paint" class="window" hidden>
+    <div class="titlebar" id="paint-titlebar">
+      <div class="title"><span class="title-emoji">🎨</span> PixelPaint95 – [Untitled]</div>
+      <div class="win-controls">
+        <button class="btn-min" title="Minimize">_</button>
+        <button class="btn-max" title="Maximize">▭</button>
+        <button class="btn-close" title="Close">X</button>
+      </div>
+    </div>
+
+    <div class="menubar">
+      <div class="menu"><span>File</span>
+        <div class="menu-drop">
+          <button data-cmd="file-new">New</button>
+          <button data-cmd="file-save">Save Snapshot</button>
+          <hr>
+          <button data-cmd="file-exit">Exit</button>
+        </div>
+      </div>
+      <div class="menu"><span>Edit</span>
+        <div class="menu-drop">
+          <button data-cmd="edit-undo" disabled>Undo</button>
+        </div>
+      </div>
+      <div class="menu"><span>View</span>
+        <div class="menu-drop">
+          <label><input type="checkbox" id="chk-grid" checked> Grid</label>
+          <label><input type="checkbox" id="chk-minimap" checked> Mini-map</label>
+          <label><input type="checkbox" id="chk-sound" checked> Sound</label>
+          <div class="submenu">Zoom
+            <div class="menu-drop">
+              <button data-zoom="0.1">10%</button>
+              <button data-zoom="0.25">25%</button>
+              <button data-zoom="0.5">50%</button>
+              <button data-zoom="1">100%</button>
+              <button data-zoom="2">200%</button>
+              <button data-zoom="4">400%</button>
+              <button data-zoom="8">800%</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu"><span>Help</span>
+        <div class="menu-drop">
+          <button data-cmd="help-about">About PixelPaint95…</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="workarea">
+      <div class="sidebar">
+        <button class="tool" data-tool="pencil" title="Pencil (B)">✎</button>
+        <button class="tool" data-tool="eraser" title="Eraser (E)">⌫</button>
+        <button class="tool" data-tool="eyedropper" title="Eyedropper (I)">⟡</button>
+        <button class="tool" data-tool="hand" title="Hand (H)">✥</button>
+        <button class="tool" data-tool="zoom" title="Zoom (+/-)">🔍</button>
+        <button class="tool" data-tool="bucket" title="Bucket">🪣</button>
+      </div>
+
+      <div class="canvas-wrap" id="canvasWrap">
+        <canvas id="screen" width="800" height="600"></canvas>
+        <div id="cursorLabel" class="cursor-label" hidden></div>
+        <canvas id="miniMap" width="120" height="120" class="minimap"></canvas>
+      </div>
+    </div>
+
+    <div class="palette" id="palette"></div>
+
+    <div class="statusbar">
+      <div id="sb-pos">X: — Y: —</div>
+      <div id="sb-color">Color: —</div>
+      <div id="sb-timer">Next pixel in: 0:00</div>
+    </div>
+  </div>
+
+  <div id="modal-layer"></div>
+
+  <script src="/js/app.js?5"></script>
+</body>
+</html>
